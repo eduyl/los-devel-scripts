@@ -20,14 +20,11 @@ source build/envsetup.sh
 
 # Setup local manifest
 cd .repo
-git clone -b lineage-20 https://github.com/metterschlg/local_manifests
-cd local_manifests/
-# Just keep the manifest we need to build for gts28ltexx
-rm gts210ltexx.xml gts210wifi.xml gts28wifi.xml tbelteskt.xml tre3calteskt.xml trelteskt.xml treltexx.xml trhpltexx.xml
+git clone https://github.com/eduyl/local_manifests
 
 # Pull the latest sources - can take hours depending on network connection
 croot
-repo sync
+repo sync --force-sync
 
 # for samsung_slsi libfimg4x: Fix a -Wunreachable-code-loop-increment compilation error
 repopick -f 331661
@@ -41,7 +38,7 @@ croot
 # Select SM-T715 for the build
 breakfast gts28ltexx
 # Start build - this might take many hours for the initial build
-time brunch gts28ltexx
+brunch gts28ltexx
 # To create engineering builds, alternatively use
 # TARGET_BUILD_TYPE=debug TARGET_BUILD_VARIANT=eng m bacon
 
