@@ -36,9 +36,9 @@ patch -p1 < ~/remove-MPPThread.patch
 croot
 
 # Select SM-T715 for the build
-breakfast gts28ltexx
+breakfast gts210ltexx
 # Start build - this might take many hours for the initial build
-brunch gts28ltexx
+brunch gts210ltexx
 # To create engineering builds, alternatively use
 # TARGET_BUILD_TYPE=debug TARGET_BUILD_VARIANT=eng m bacon
 
